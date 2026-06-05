@@ -6,6 +6,20 @@ The point is not to prove one parser is always better.
 
 The point is to show how file shape and processing model affect memory usage.
 
+Write-up: [Large JSON in Python: Parser Speed Is Not the Whole Problem](https://jadhav.dev/blog/large-json-python/parser-speed-is-not-the-whole-problem)
+
+## Published Results
+
+Reference run with 2,000,000 synthetic records:
+
+![Benchmark output](screenshots/benchmark-output.png)
+
+The JSONL streaming methods stayed around 25 MB peak RSS.
+
+The full JSON array methods used multiple GB because they materialized the parsed data before processing could continue.
+
+Raw outputs are available in [`results/benchmark-output.txt`](results/benchmark-output.txt) and [`results/benchmark.csv`](results/benchmark.csv).
+
 ## Setup
 
 ```bash
